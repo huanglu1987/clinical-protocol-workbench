@@ -1,4 +1,14 @@
-# v0.1.0-preview.1 — 内部预览版
+# v0.1.0-preview.4 — 标准组合安装与项目 AGENTS 指南
+
+默认推荐标准组合安装：核心工作台、两项皮肤科策略、clinical-doc-qc、paper-lookup、database-lookup、citation-management 共 7 项。新增 core 档位、离线预览/校验、固定提交及完整文件指纹、版本冲突保护、失败回滚和运行环境提示。
+
+新增随 Skill 分发的项目 AGENTS 模板及完整中文教程：建议多轮起草前在项目根目录建立，但不是运行前提；写明资料用途、路径、协作规则、确认范围、交付及检索权限，研究事实继续集中登记到项目控制表。
+
+验证：80/80 回归通过；全新目录真实联网安装 7/7、重复安装 7/7 跳过、离线核验通过。详情见 docs/BUNDLE_VALIDATION.md。完整 Git 检出解决根目录上游稀疏安装的子目录遗漏，固定内容一致后才允许安装。
+
+普通单 Skill 链接仍只安装核心，需使用 README 的完整组合安装提示或脚本。Microsoft Word、Python 运行库和服务权限不自动配置；Windows/Linux 实机与临床端到端验证未因本次发行而完成。
+
+## v0.1.0-preview.1 历史记录
 
 首次独立发行中文临床方案 Codex Skill 工作包。
 

@@ -76,7 +76,7 @@ flowchart TD
 
 脚本命中只是线索，需要回到原文解释。DOCX 中缓存的目录页码不能直接判错，必须由 Microsoft Word 更新域、导出 PDF 后再核对。审核报告默认不修改方案。
 
-当前工作包没有把 `clinical-doc-qc` 文件复制进来，也没有对它建立同等的逐文件锁；每个审核项目应记录实际使用的版本。
+标准组合安装时从固定上游取得 `clinical-doc-qc`，并以 bundle.lock.json 中的完整文件指纹检查；正文没有复制进本仓库。每个审核项目仍应记录实际使用的版本和工具运行结果。
 
 ### 3.4 可选的分阶段参考：`clinical-trial-protocol-skill`
 
@@ -96,7 +96,7 @@ flowchart TD
 | 已批准产品与审评逻辑 | FDA 标签、公开审评包、官方批准信息 | 区分产品、途径、人群和地区适用性 |
 | 引文整理 | 当前环境中的引用管理工具 | 保留来源定位，不让格式正确掩盖证据不足 |
 
-在当前 Codex 环境中，可能对应的具体 Skill 包括 `clinicaltrials-database`、`pubmed-database`、`paper-lookup`、`database-lookup` 和 `citation-management`。这些名称是可选实例，不是本工作包固定打包或保证存在的依赖；智能体应先确认本次实际可用工具，再把名称、查询式、日期和来源记录到项目控制表。
+标准组合固定安装 `paper-lookup`、`database-lookup` 和 `citation-management`；上游原独立 `clinicaltrials-database` 与 `pubmed-database` 已合并到相应检索入口。核心档位不安装这些工具。智能体仍需确认本次可用的网络、库和服务权限，把实际工具、查询式、日期和来源记录到项目控制表。
 
 是否允许联网必须服从用户和组织要求。用户未授权外部检索，或无法取得全文时，智能体应标记证据缺口，继续可独立完成的结构化工作，不用模型常识补齐。
 
@@ -181,10 +181,12 @@ AutoCorrect 只适合发现中英文间距、标点等机械问题。它不能�
 
 ## 7. 专业策略 Skill 如何安装和核验
 
+推荐优先采用 [标准组合安装](INSTALLATION.md)，可一次取得两项策略和审核/检索依赖并回读完整指纹。以下为单独管理策略依赖时的参考，不能代替标准组合安装。
+
 把下面提示直接交给 Codex；如已有同名目录，先核验，不静默覆盖：
 
 ```text
-请使用 $skill-installer，以 git 方式按固定版本安装缺失的专业依赖：
+请使用 $skill-installer，按固定版本安装缺失的专业依赖：根目录型口服 Skill 使用完整 download 方式，外用子目录可用 git 方式。
 1. https://github.com/huanglu1987/oral-derm-clinical-strategy/tree/b927d7d98283d489ab2661cd9551d0d4068cda37
    安装名称：oral-derm-clinical-strategy
 2. https://github.com/huanglu1987/Topical-Clinical-Strategy-Skill/tree/7edded14ad8bbb32a17e8ce2590efa735ff73c8c/topical-clinical-strategy
@@ -206,7 +208,7 @@ python3 "$codex_skills_root/clinical-protocol-workbench/scripts/verify_strategy_
 
 `matched` 只表示文件与本版锁定指纹一致。`missing` 或 `mismatch` 时停用对应专业路径；不要为了让结果变绿而重算锁文件。该检查不会验证临床正确性、法规时效、人工确认身份或运行时每一次文件读取。
 
-审核模式还需单独安装 [clinical-doc-qc](https://github.com/huanglu1987/clinical-doc-qc)。当前工作包未锁定它的完整文件树，因此项目记录必须保留实际安装版本、运行命令和输出。
+标准组合已包括 [clinical-doc-qc](https://github.com/huanglu1987/clinical-doc-qc) 并锁定文件树；核心档位需另行补装。项目记录应保留实际安装版本、运行命令和输出。
 
 ## 8. 数据与权限边界
 

@@ -2,17 +2,21 @@
 
 面向临床开发部门医学经理的 Codex Skill，用于组织中文 CDE 药物临床试验方案的**策略交接、方案撰写、独立审核和获准后的受控修订**。
 
-当前推荐版本：**v0.1.0-preview.3，公开预览版**。仓库公开可见，可通过链接直接交给智能体安装；它仍不是独立桌面软件，也不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
+当前推荐版本：**v0.1.0-preview.4，公开预览版**。默认推荐标准组合安装，共 7 项 Skill；它仍不是独立桌面软件，也不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
 
 ## 最简单的安装方法
 
 把下面整段直接发给 Codex：
 
 ```text
-请使用 $skill-installer，以 git 方式安装这个固定版本的 Skill：
-https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3/skills/clinical-protocol-workbench
-
-安装后检查 Skill 是否有效，不要覆盖已有同名目录；告诉我下一条消息如何调用。
+请安装 clinical-protocol-workbench v0.1.0-preview.4 标准组合：
+先使用 $skill-installer，以 git 方式从以下固定链接取得核心 Skill：
+https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.4/skills/clinical-protocol-workbench
+然后运行实际安装目录内的 scripts/install_bundle.py，使用默认 standard 档位。
+这次安装请求包括其固定清单中的 6 项外部 Skill。已有同名目录先核验：
+版本一致则跳过；有冲突请列明，不覆盖、不自动升级。
+完成后运行 --check，报告 7 项 Skill 的结果及运行库/Word 等环境缺口。
+告诉我下一条消息如何调用。
 ```
 
 安装成功后，从下一条消息开始直接说：
@@ -27,7 +31,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3
 请使用 $clinical-protocol-workbench，审核这份方案。先只输出问题清单和修改计划，不修改原文件。
 ```
 
-安装只是把工作规则、模板和依赖核验脚本加入 Codex。它不会自动安装 Microsoft Word、外部策略 Skill 或审核 Skill，也不会把资料上传到本仓库。
+标准组合会一起安装工作台、两项策略、审核、论文检索、数据库检索和引文管理 Skill。仅把核心链接交给普通安装器仍只安装核心；必须执行上面完整提示或组合脚本，才能补齐其余 6 项。安装不上传项目资料，不安装 Microsoft Word 或 Python 运行库，也不自动取得数据库授权。详细说明、核心档位、升级和冲突处理见 [组合安装指南](docs/INSTALLATION.md)。
 
 ## 它解决什么问题
 
@@ -57,6 +61,8 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3
 ## 面向医学经理的完整教程
 
 - [撰写模式详细教程](docs/DRAFTING_TUTORIAL.md)：从原始资料到完整方案工作初稿，含逐阶段提示词、审核点和交付验收表。
+- [项目 AGENTS.md 使用说明](docs/PROJECT_AGENTS.md)：是否必需、放置位置、主要内容、模板与启动提示。
+- [组合安装指南](docs/INSTALLATION.md)：默认 7 项组合、检查结果及升级处理。
 - [审核模式详细教程](docs/REVIEW_TUTORIAL.md)：从冻结目标、深度双通道、回文核实到批准后 Word 原生修订。
 - [工具与工作原理](docs/TOOLS_AND_ARCHITECTURE.md)：逐项解释引用的 Skill、脚本、检索工具、Word 能力和实际边界。
 - [验证状态](docs/VALIDATION.md)：哪些已测、哪些未测，以及测试结果不能证明什么。
@@ -68,11 +74,14 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3
 
 ```text
 项目目录/
+  AGENTS.md          推荐：协作规则和项目控制表位置
   01_输入原件/       只读：IB、研究报告、确认版 Synopsis、公司模板等
   02_外部依据/       法规、指南、全文文献、登记研究和公开审评资料
   03_工作记录/       项目控制表、来源哈希、决定、TBD、冲突和影响图
   04_输出版本/       每轮新建文件，禁止覆盖输入原件
 ```
+
+建议多轮撰写前建立项目 `AGENTS.md`，但没有它也能使用工作台。已有文件先合并规则，不能覆盖；具体内容和随包模板见 [项目规则说明](docs/PROJECT_AGENTS.md)。完整研究参数与确认记录统一放在项目控制表。
 
 开始时至少告诉智能体：
 
@@ -85,16 +94,16 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3
 
 ## 它具体引用哪些工具
 
-| 工具/组件 | 何时使用 | 是否随本仓库的 Skill 安装 |
+| 工具/组件 | 何时使用 | 是否随标准组合安装 |
 | --- | --- | --- |
 | `clinical-protocol-workbench` | 模式路由、来源分级、设计确认、起草组装、独立审核边界 | 是 |
 | 项目控制表 | 保存来源、`PROP/DEC/EVD/TBD/HIST`、影响图与版本记录 | 是 |
 | `verify_strategy_dependencies.py` | 核对口服/外用策略 Skill 是否为已冻结版本 | 是 |
-| `oral-derm-clinical-strategy` | 口服小分子皮肤、毛发及相关感染项目的策略/Synopsis | 否，按需安装 |
-| `topical-clinical-strategy` | 局部起效外用小分子项目的策略/Synopsis | 否，按需安装 |
-| `clinical-doc-qc` | 审核模式的格式/结构检查与深度文本核查方法 | 否，审核时安装 |
+| `oral-derm-clinical-strategy` | 口服小分子皮肤、毛发及相关感染项目的策略/Synopsis | 是，按需调用 |
+| `topical-clinical-strategy` | 局部起效外用小分子项目的策略/Synopsis | 是，按需调用 |
+| `clinical-doc-qc` | 审核模式的格式/结构检查与深度文本核查方法 | 是；运行库另行检查 |
 | `clinical-trial-protocol-skill` | 仅可借鉴分阶段和 waypoint 思路，不直接运行其 FDA/NIH 全流程 | 否，可选参考 |
-| 医学检索/数据库工具 | 按问题查法规、指南、注册研究和原始研究 | 否，按当前环境选择 |
+| `paper-lookup`、`database-lookup`、`citation-management` | 按问题查文献、注册研究及整理引文 | 是；服务权限、运行库另行检查 |
 | PaperQA2 | 可选的本地资料候选片段召回；必须回原件核实 | 否，不是基础依赖 |
 | AutoCorrect | 仅提示空格、标点等机械排版问题 | 否，不检查临床逻辑 |
 | DOCX/Word 工具 | 生成 DOCX；获准后处理原生修订/批注；真实 Word 渲染与逐页检查 | 否，取决于环境 |
@@ -149,7 +158,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3
 
 ## 版本、升级与卸载
 
-[v0.1.0-preview.3 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.3)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
+[v0.1.0-preview.4 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.4)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
 
 安装器默认不覆盖同名目录。升级前应将旧目录移到 Codex skills 根目录之外的备份位置，记录旧 tag 和正在使用该版本的项目；再按新 tag 安装。回退时移走新版并恢复完整旧目录，不要合并两个版本。
 

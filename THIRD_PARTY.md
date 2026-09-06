@@ -11,6 +11,8 @@
 
 `clinical-doc-qc` 是独立审核依赖，本版仅提供定位，不复制其正文或运行库。本版亦未复制 Codex 安装器、PaperQA2、AutoCorrect、Microsoft Word 或文档生成服务。
 
+v0.1.0-preview.4 的标准组合安装器会按固定提交从各自上游下载依赖至用户的本地 Skill 目录。本发行包仅新增下载编排和指纹清单，不再分发这些正文。clinical-doc-qc 固定提交为 90a1cbd52ff1b975f774d3b1280d7b4b71ab322f（仓库声明 MIT）；paper-lookup、database-lookup、citation-management 来自 K-Dense-AI/claude-scientific-skills 的 1e5eeffbdad3749125afe7ab48a39694e27f181c。各组件及依赖资料的使用遵守其上游许可和服务条款。安装不代表数据库授权或上游全部功能已配置。
+
 实验模块使用 lxml 6.1.1；合成 DOCX 构建另外使用 python-docx 1.2.0。仅保存依赖要求，不内嵌这些库；安装与使用须遵循其各自许可证。Microsoft Word 由用户自行合法安装并授权使用。
 
 合成示例只用于软件行为测试，不是临床证据、真实项目或可直接套用的研究模板。真实临床输入、项目特异脚本、真实审阅文件与原开发历史均未收入此仓库。
