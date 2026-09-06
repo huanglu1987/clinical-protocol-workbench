@@ -1,0 +1,4 @@
+interface:
+  display_name: "中文临床方案工作包"
+  short_description: "中文临床方案撰写、独立审核与受控修订，衔接皮肤科专业策略及设计确认"
+  default_prompt: "使用 $clinical-protocol-workbench，先盘点并冻结我提供的资料，按本轮目标选择撰写或审核模式。"
