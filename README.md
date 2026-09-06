@@ -2,20 +2,21 @@
 
 面向临床开发部门医学经理的 Codex Skill，用于组织中文 CDE 药物临床试验方案的**策略交接、方案撰写、独立审核和获准后的受控修订**。
 
-当前推荐版本：**v0.1.0-preview.4，公开预览版**。默认推荐标准组合安装，共 7 项 Skill；它仍不是独立桌面软件，也不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
+当前推荐版本：**v0.1.0-preview.5，公开预览版**。默认推荐标准组合安装，共 7 项 Skill；每轮撰写与审核还须完整读取用户提供的指定自检规范。它不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
 
 ## 最简单的安装方法
 
 把下面整段直接发给 Codex：
 
 ```text
-请安装 clinical-protocol-workbench v0.1.0-preview.4 标准组合：
+请安装 clinical-protocol-workbench v0.1.0-preview.5 标准组合：
 先使用 $skill-installer，以 git 方式从以下固定链接取得核心 Skill：
-https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.4/skills/clinical-protocol-workbench
+https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.5/skills/clinical-protocol-workbench
 然后运行实际安装目录内的 scripts/install_bundle.py，使用默认 standard 档位。
 这次安装请求包括其固定清单中的 6 项外部 Skill。已有同名目录先核验：
 版本一致则跳过；有冲突请列明，不覆盖、不自动升级。
 完成后运行 --check，报告 7 项 Skill 的结果及运行库/Word 等环境缺口。
+另检查必读《中文临床试验方案初稿撰写与自检规范_v2.md》是否可用；原文由用户本地提供，不从公开仓库取得。
 告诉我下一条消息如何调用。
 ```
 
@@ -83,6 +84,8 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.4
 
 建议多轮撰写前建立项目 `AGENTS.md`，但没有它也能使用工作台。已有文件先合并规则，不能覆盖；具体内容和随包模板见 [项目规则说明](docs/PROJECT_AGENTS.md)。完整研究参数与确认记录统一放在项目控制表。
 
+**每轮撰写和审核必读**：《中文临床试验方案初稿撰写与自检规范_v2.md》（正文 v2.3 / 2026-09-02）。完整原文含内部案例，须由用户在本机提供；工作台校验版本后，每个执行上下文完整读取全部 1,520 行。缺失、版本不符或未读完时，先补齐再开始正文撰写或实质审核。具体登记和读取方法见 [必读规范说明](docs/REQUIRED_STANDARD.md)。
+
 开始时至少告诉智能体：
 
 1. 本轮要策略、完整撰写、占位工作稿还是审核；
@@ -98,6 +101,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.4
 | --- | --- | --- |
 | `clinical-protocol-workbench` | 模式路由、来源分级、设计确认、起草组装、独立审核边界 | 是 |
 | 项目控制表 | 保存来源、`PROP/DEC/EVD/TBD/HIST`、影响图与版本记录 | 是 |
+| 指定中文自检规范 | 每轮撰写和审核的必读方法文件 | 校验/读取规则随包；完整原文由用户本地提供 |
 | `verify_strategy_dependencies.py` | 核对口服/外用策略 Skill 是否为已冻结版本 | 是 |
 | `oral-derm-clinical-strategy` | 口服小分子皮肤、毛发及相关感染项目的策略/Synopsis | 是，按需调用 |
 | `topical-clinical-strategy` | 局部起效外用小分子项目的策略/Synopsis | 是，按需调用 |
@@ -158,7 +162,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.4
 
 ## 版本、升级与卸载
 
-[v0.1.0-preview.4 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.4)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
+[v0.1.0-preview.5 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.5)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
 
 安装器默认不覆盖同名目录。升级前应将旧目录移到 Codex skills 根目录之外的备份位置，记录旧 tag 和正在使用该版本的项目；再按新 tag 安装。回退时移走新版并恢复完整旧目录，不要合并两个版本。
 

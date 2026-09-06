@@ -199,7 +199,14 @@ def install(items: list[dict], source: Path, dest: Path, installer: Path | None)
 
 
 def environment_status() -> dict:
+    try:
+        standard = subprocess.run([sys.executable, str(Path(__file__).with_name("check_writing_standard.py"))],
+                                  capture_output=True, text=True, timeout=15)
+        standard_status = json.loads(standard.stdout)
+    except (OSError, subprocess.TimeoutExpired, ValueError):
+        standard_status = {"status": "not_checked", "agent_read_complete": "not_attested"}
     return {
+        "required_writing_standard": standard_status,
         "python": sys.version.split()[0],
         "git": bool(shutil.which("git")),
         "autocorrect": bool(shutil.which("autocorrect")),

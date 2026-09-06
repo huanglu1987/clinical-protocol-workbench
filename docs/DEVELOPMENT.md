@@ -17,7 +17,9 @@ Windows PowerShell 相应使用 `.venv\Scripts\python.exe`，并设置 `$env:PYT
 
 合成构建会在 `docs/verification/` 下生成虚构 DOCX、冻结计划和清单（均被忽略，不进入发行包）。源/输出存在且字节不同时会拒绝覆盖。80 项测试包含原有 67 项计划过期/篡改、批注锚点、既有审阅结构保护、ZIP/XML 风险与策略依赖漂移测试，以及 13 项组合安装测试；测试通过不等于生产使用验收。
 
-组合安装测试可单独用 `python3 -m unittest discover -s worker/tests -p test_bundle_install.py -v` 执行。核心文件发生获准变更后，维护人员用 `python3 scripts/build_bundle_lock.py` 更新核心文件指纹，随后重跑测试；该脚本保留既有外部依赖锁。首次建立外部锁的 `--sources` 只能指向已从脚本固定提交取得、核对完整的目录，不得对用户漂移目录重新取哈希来消除冲突。
+preview.5 另新增 7 项必读规范测试，总计 87 项。必读规范测试仅使用虚构三行文件，不将内部规范正文提交到测试仓库；真实原文件校验另在本机执行。
+
+组合安装测试可单独用 `python3 -m unittest discover -s worker/tests -p test_bundle_install.py -v` 执行。核心文件发生获准变更后，维护人员用 `python3 scripts/build_bundle_lock.py` 更新核心文件指纹，随后重跑测试；该脚本保留既有外部依赖锁。首次建立外部锁的 `--sources` 只能指向已从脚本固定提交取得、核对完整的目录，不得对用户漂移目录重新取哈希来消除冲突。writing-standard.lock.json 固定的是用户指定规范，不能随核心代码更新而重算它来接受内容变化。
 
 独立重算合成审阅结构：
 
