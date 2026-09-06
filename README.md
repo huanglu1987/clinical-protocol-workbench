@@ -2,15 +2,15 @@
 
 面向临床开发部门医学经理的 Codex Skill，用于组织中文 CDE 药物临床试验方案的**策略交接、方案撰写、独立审核和获准后的受控修订**。
 
-当前版本：**v0.1.0-preview.2，公开预览版**。仓库公开可见，可通过链接直接交给智能体安装；它仍不是独立桌面软件，也不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
+当前推荐版本：**v0.1.0-preview.3，公开预览版**。仓库公开可见，可通过链接直接交给智能体安装；它仍不是独立桌面软件，也不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
 
 ## 最简单的安装方法
 
 把下面整段直接发给 Codex：
 
 ```text
-请使用 $skill-installer 安装这个固定版本的 Skill：
-https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.2/skills/clinical-protocol-workbench
+请使用 $skill-installer，以 git 方式安装这个固定版本的 Skill：
+https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.3/skills/clinical-protocol-workbench
 
 安装后检查 Skill 是否有效，不要覆盖已有同名目录；告诉我下一条消息如何调用。
 ```
@@ -149,7 +149,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.2
 
 ## 版本、升级与卸载
 
-[v0.1.0-preview.2 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.2)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
+[v0.1.0-preview.3 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.3)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
 
 安装器默认不覆盖同名目录。升级前应将旧目录移到 Codex skills 根目录之外的备份位置，记录旧 tag 和正在使用该版本的项目；再按新 tag 安装。回退时移走新版并恢复完整旧目录，不要合并两个版本。
 

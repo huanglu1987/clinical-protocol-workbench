@@ -184,7 +184,7 @@ AutoCorrect 只适合发现中英文间距、标点等机械问题。它不能�
 把下面提示直接交给 Codex；如已有同名目录，先核验，不静默覆盖：
 
 ```text
-请使用 $skill-installer 按固定版本安装缺失的专业依赖：
+请使用 $skill-installer，以 git 方式按固定版本安装缺失的专业依赖：
 1. https://github.com/huanglu1987/oral-derm-clinical-strategy/tree/b927d7d98283d489ab2661cd9551d0d4068cda37
    安装名称：oral-derm-clinical-strategy
 2. https://github.com/huanglu1987/Topical-Clinical-Strategy-Skill/tree/7edded14ad8bbb32a17e8ce2590efa735ff73c8c/topical-clinical-strategy
