@@ -18,7 +18,7 @@
 | database-lookup | 同上，1e5eeff | ClinicalTrials.gov 等数据库检索 |
 | citation-management | 同上，1e5eeff | 引文管理 |
 
-完整提交和每个受控文件的 SHA-256 均在 [bundle.lock.json](../skills/clinical-protocol-workbench/assets/bundle.lock.json)。上游独立的 clinicaltrials-database 和 pubmed-database 已分别并入 database-lookup 和 paper-lookup，标准组合采用合并后的入口，不默认恢复旧版。clinical-trial-protocol-skill 仅供借鉴阶段组织，非当前工作流的运行依赖，仍为可选参考。
+完整提交和每个受控文件的 文件校验码（SHA-256） 均在 [bundle.lock.json](../skills/clinical-protocol-workbench/assets/bundle.lock.json)。上游独立的 clinicaltrials-database 和 pubmed-database 已分别并入 database-lookup 和 paper-lookup，标准组合采用合并后的入口，不默认恢复旧版。clinical-trial-protocol-skill 仅供借鉴阶段组织，非当前工作流的运行依赖，仍为可选参考。
 
 这些 Skill 按实际问题调用，不是每次起草都同时加载全部内容。第三方正文在安装时从固定上游取得，没有打包进本仓库。
 

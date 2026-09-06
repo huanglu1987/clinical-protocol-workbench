@@ -37,11 +37,11 @@ def main():
                 if any(files.get(filename) != digest for filename, digest in expected.items()):
                     raise ValueError(f"Strategy fingerprints do not match: {name}")
             skills.append({"name": name, "repo": repo, "commit": commit, "path": subpath, "files": files})
-        lock = {"schema_version": 1, "version": "v0.1.0-preview.5", "skills": skills}
+        lock = {"schema_version": 1, "version": "v0.1.0-preview.6", "skills": skills}
     else:
         lock = json.loads(path.read_text())
         next(item for item in lock["skills"] if item["name"] == bundle.CORE)["files"] = bundle.fingerprints(CORE, {bundle.LOCK})
-    lock["version"] = "v0.1.0-preview.5"
+    lock["version"] = "v0.1.0-preview.6"
     path.write_text(json.dumps(lock, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Locked {len(lock['skills'])} skills; only release maintainers may refresh this file.")
 

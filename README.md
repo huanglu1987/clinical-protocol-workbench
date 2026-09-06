@@ -2,16 +2,16 @@
 
 面向临床开发部门医学经理的 Codex Skill，用于组织中文 CDE 药物临床试验方案的**策略交接、方案撰写、独立审核和获准后的受控修订**。
 
-当前推荐版本：**v0.1.0-preview.5，公开预览版**。默认推荐标准组合安装，共 7 项 Skill；每轮撰写与审核还须完整读取用户提供的指定自检规范。它不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
+当前推荐版本：**v0.1.0-preview.6，公开预览版**。默认推荐标准组合安装，共 7 项 Skill；每轮撰写与审核还须完整读取用户提供的指定自检规范。它不能替代医学、统计、药物警戒、法规、伦理或申办方批准。
 
 ## 最简单的安装方法
 
 把下面整段直接发给 Codex：
 
 ```text
-请安装 clinical-protocol-workbench v0.1.0-preview.5 标准组合：
+请安装 clinical-protocol-workbench v0.1.0-preview.6 标准组合：
 先使用 $skill-installer，以 git 方式从以下固定链接取得核心 Skill：
-https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.5/skills/clinical-protocol-workbench
+https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.6/skills/clinical-protocol-workbench
 然后运行实际安装目录内的 scripts/install_bundle.py，使用默认 standard 档位。
 这次安装请求包括其固定清单中的 6 项外部 Skill。已有同名目录先核验：
 版本一致则跳过；有冲突请列明，不覆盖、不自动升级。
@@ -78,7 +78,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.5
   AGENTS.md          推荐：协作规则和项目控制表位置
   01_输入原件/       只读：IB、研究报告、确认版 Synopsis、公司模板等
   02_外部依据/       法规、指南、全文文献、登记研究和公开审评资料
-  03_工作记录/       项目控制表、来源哈希、决定、TBD、冲突和影响图
+  03_工作记录/       项目控制表、来源文件校验码、决定、TBD、冲突和影响图
   04_输出版本/       每轮新建文件，禁止覆盖输入原件
 ```
 
@@ -135,7 +135,9 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.5
 
 医学经理不要只看“文件是否生成”。每次交付至少应有：
 
-- 输入文件、输出文件及 SHA-256；
+“文件校验码”是工具根据文件内容自动生成的一串字符，用来核对文件是否发生变化，不需要使用者手工计算。SHA-256 是所用的计算方法；校验码一致不代表临床内容已经审核通过。
+
+- 输入文件、输出文件及文件校验码（SHA-256）；
 - 每份来源的角色和允许用途；
 - 当前有效设计决定及真实确认记录；
 - 未关闭的 TBD、冲突及受影响章节；
@@ -162,7 +164,7 @@ https://github.com/huanglu1987/clinical-protocol-workbench/tree/v0.1.0-preview.5
 
 ## 版本、升级与卸载
 
-[v0.1.0-preview.5 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.5)提供源码 ZIP、文件 SHA-256 清单和发行验证记录。
+[v0.1.0-preview.6 Release](https://github.com/huanglu1987/clinical-protocol-workbench/releases/tag/v0.1.0-preview.6)提供源码 ZIP、文件校验码（SHA-256）清单和发行验证记录。
 
 安装器默认不覆盖同名目录。升级前应将旧目录移到 Codex skills 根目录之外的备份位置，记录旧 tag 和正在使用该版本的项目；再按新 tag 安装。回退时移走新版并恢复完整旧目录，不要合并两个版本。
 

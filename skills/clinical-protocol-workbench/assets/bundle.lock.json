@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "version": "v0.1.0-preview.5",
+  "version": "v0.1.0-preview.6",
   "skills": [
     {
       "name": "clinical-protocol-workbench",
       "files": {
-        "SKILL.md": "0122220544a25d817725d19d21799d7f32f43804f74a8c406436724c1fd5ec91",
+        "SKILL.md": "a245ad1d0f6e28610752b76212102442b6248dcbe96e46eecde69a5ddf988ae8",
         "agents/openai.yaml": "9410bd98ceaf1fb45093a441ef079bac26aad41554b11212f4ded3297d6c5cef",
-        "assets/project-AGENTS.template.md": "538520eeccee79f4fcb882875cb5016e461692adb251d3ad734dd257b8a80228",
-        "assets/project-control-template.md": "3034e7a900f3454755b11c459c0983234396e2b3dba95638bc35c1100f10b0b5",
+        "assets/project-AGENTS.template.md": "7f823a243bc0066bb459264a620ed2202ba8aa99baf8c066a30ac500fd21aaec",
+        "assets/project-control-template.md": "822093b74af66fdc907b851782d942e19ccc6e2fdced7992cf7406c91a675313",
         "assets/strategy-dependencies.lock.json": "b76695708d632f37c6a645110bf0fe0253334b3cd0224068d59c253b147a6a8c",
         "assets/writing-standard.lock.json": "23fe821991148bcc35166c94617849db9edd54c67b47572bba70cbde95d5debc",
         "examples/s1-boundary-case/README.md": "0ae1fab08d68bf28b6629a6e7b0336ad1f64e9ad03082f90b842359dcf1a6d7c",
@@ -22,10 +22,10 @@
         "examples/s1-change-propagation/README.md": "aff4ade7a8d07d426973555bff54e3828c7f87ee7c19cd74a95fa6faa0e080bd",
         "examples/s1-change-propagation/baseline.md": "4b914a22ca6f5c63e968ef645a3c669702885bd46be8557f79378dd556b90831",
         "examples/s1-change-propagation/change-request.md": "5bddc336baa7918f1a6ff4f7ade900ea82f08648146b102d1ea70a8f01fbdb38",
-        "references/dermatology-strategy.md": "91b143b2ae09480a3b3c9387e81491f28e51661e30fb6f5a032a17d608a12279",
-        "references/drafting-mode.md": "884e9fd89c2182233bac7b79325f0854e85a475e5e7b319ced7f1ffb15b2d4bb",
-        "references/required-writing-standard.md": "a38e39ba5b49ac91ca9537753fda2f01b539fea5fe46f39b35fe4a9622b0fa41",
-        "references/review-mode.md": "6d9fbbbb51802ab6ae8bf428cb6ef53c9f94eda9c1bf2f5f8c25088ee1a85482",
+        "references/dermatology-strategy.md": "bf8f30fa5a06470b519da922cc0aea2b297d0d2575d39066582b4effeb943e79",
+        "references/drafting-mode.md": "6829922f23fc24ca17d72f1e91cd8d84b7cf1097df384db75310e5b3ff77e919",
+        "references/required-writing-standard.md": "883d21a74f2faa957a1e55a40355977baff5b181a2264a11b95464b47677c30c",
+        "references/review-mode.md": "d3cd3d3aaf0a6a43101374add526763a1f703128ceaefd0c027383b651937ed0",
         "scripts/check_writing_standard.py": "abe48065468410e5dbf1e08860d2508b8ae807c683535d3a9eb9e2c844096e2d",
         "scripts/install_bundle.py": "6e561e3fc8139058da0c59eef0a12fe95b73b1ccb7a47e82ea62e5a1de0a3d97",
         "scripts/verify_strategy_dependencies.py": "ced507d276e0a8dfcfe4e6d04ac5bbe726722854280256739049ce80d8d19a3c"
